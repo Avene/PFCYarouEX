@@ -11,7 +11,7 @@ public class PFCProfile {
     private int totalCals;
     private int proteinGrams;
     private int fatGrams;
-    private int carbGrams;
+    private int carboGrams;
 
     public PFCProfile() {
         this.weight = 0;
@@ -21,7 +21,7 @@ public class PFCProfile {
         this.totalCals = 0;
         this.proteinGrams = 0;
         this.fatGrams = 0;
-        this.carbGrams = 0;
+        this.carboGrams = 0;
     }
 
     public double getWeight() {
@@ -56,6 +56,38 @@ public class PFCProfile {
         this.proteinFactor = proteinFactor;
     }
 
+    public void setWeight(String weightString) {
+        try {
+            this.setWeight(Double.parseDouble(weightString));
+        } catch (NumberFormatException e) {
+            this.setFatMassRate(0);
+        }
+    }
+
+    public void setFatMassRate(String fatMassRateString) {
+        try {
+            this.setFatMassRate(Double.parseDouble(fatMassRateString));
+        } catch (NumberFormatException e) {
+            this.setFatMassRate(0);
+        }
+    }
+
+    public void setCalsFromFatRate(String calsFromFatRateString) {
+        try {
+            this.setCalsFromFatRate(Double.parseDouble(calsFromFatRateString));
+        } catch (NumberFormatException e) {
+            this.setFatMassRate(0);
+        }
+    }
+
+    public void setProteinFactor(String proteinFactorString) {
+        try {
+            this.setProteinFactor(Double.parseDouble(proteinFactorString));
+        } catch (NumberFormatException e) {
+            this.setFatMassRate(0);
+        }
+    }
+
     public int getTotalCals() {
         return totalCals;
     }
@@ -68,8 +100,20 @@ public class PFCProfile {
         return fatGrams;
     }
 
-    public double getCarbGrams() {
-        return carbGrams;
+    public double getCarboGrams() {
+        return carboGrams;
+    }
+
+    public double getCalsFromProtein() {
+        return proteinGrams * 4;
+    }
+
+    public double getCalsFromFat() {
+        return fatGrams * 9;
+    }
+
+    public double getCalsFromCarbo() {
+        return carboGrams * 4;
     }
 
     public void calculate() {
@@ -78,8 +122,6 @@ public class PFCProfile {
         fatGrams = (int) calsFromFat / 9;
         proteinGrams = (int) (proteinFactor * weight);
         int calsFromProtein = proteinGrams * 4;
-        carbGrams = (int) (totalCals - calsFromFat - calsFromProtein) / 4;
+        carboGrams = (int) (totalCals - calsFromFat - calsFromProtein) / 4;
     }
-
-
 }

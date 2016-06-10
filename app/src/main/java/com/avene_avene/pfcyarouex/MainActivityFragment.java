@@ -64,23 +64,16 @@ public class MainActivityFragment extends Fragment {
     }
 
     private void calculatePFC() {
-        String weightString = weightEditText.getText().toString();
-        pfc.setWeight(weightString.isEmpty() ? 0 : Double.parseDouble(weightString));
-
-        String fatMassRateString = fatMassRateEditText.getText().toString();
-        pfc.setFatMassRate(fatMassRateString.isEmpty() ? 0 : Double.parseDouble(fatMassRateString));
-
-        String calsFromFatRateString = calsFromFatRateEditText.getText().toString();
-        pfc.setCalsFromFatRate(calsFromFatRateString.isEmpty() ? 0 : Double.parseDouble(calsFromFatRateString));
-
-        String proteinFactorString = proteinFactorEditText.getText().toString();
-        pfc.setProteinFactor(proteinFactorString.isEmpty() ? 0 : Double.parseDouble(proteinFactorString));
+        pfc.setWeight(weightEditText.getText().toString());
+        pfc.setFatMassRate(fatMassRateEditText.getText().toString());
+        pfc.setCalsFromFatRate(calsFromFatRateEditText.getText().toString());
+        pfc.setProteinFactor(proteinFactorEditText.getText().toString());
 
         pfc.calculate();
         totalCalsTextView.setText(String.valueOf(pfc.getTotalCals()));
         proteinGramsTextView.setText(String.valueOf(pfc.getProteinGrams()));
         fatGramsTextView.setText(String.valueOf(pfc.getFatGrams()));
-        carboGramsTextView.setText(String.valueOf(pfc.getCarbGrams()));
+        carboGramsTextView.setText(String.valueOf(pfc.getCarboGrams()));
 
     }
 }
