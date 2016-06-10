@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.avene_avene.pfcyarouex.MainActivityFragment"
+    tools:showIn="@layout/activity_main">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/weight_layout"
+        style="@style/Main_TextInputLayout"
+        android:layout_alignParentTop="true">
+
+        <EditText
+            android:id="@+id/weight_editText"
+            style="@style/Num_Input_EditText"
+            android:hint="Target Weight" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/fat_mass_rate_layout"
+        style="@style/Main_TextInputLayout"
+        android:layout_below="@+id/weight_layout">
+
+        <EditText
+            android:id="@+id/fat_mass_rate_editText"
+            style="@style/Num_Input_EditText"
+            android:layout_centerHorizontal="true"
+            android:hint="Target Fat Mass Parcentage" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/cals_from_fat_rate_layout"
+        style="@style/Main_TextInputLayout"
+        android:layout_below="@+id/fat_mass_rate_layout">
+
+        <EditText
+            android:id="@+id/cals_from_fat_rate_editText"
+            style="@style/Num_Input_EditText"
+            android:layout_centerHorizontal="true"
+            android:hint="Cals from Fat Percetage" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/cals_from_protein_layout"
+        style="@style/Main_TextInputLayout"
+        android:layout_below="@+id/cals_from_fat_rate_layout">
+
+        <EditText
+            android:id="@+id/cals_from_protein_editText"
+            style="@style/Num_Input_EditText"
+            android:layout_centerHorizontal="true"
+            android:hint="Cals from Protein" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/total_cals_label_textView"
+        style="@style/labels"
+        android:layout_below="@+id/cals_from_protein_layout"
+        android:text="Total Calories" />
+
+    <TextView
+        android:id="@+id/total_cals_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/total_cals_label_textView"
+        android:layout_alignParentEnd="true"
+        android:text="0.0" />
+
+    <TextView
+        android:id="@+id/protein_grams_label_textView"
+        style="@style/labels"
+        android:layout_below="@+id/total_cals_label_textView"
+        android:text="Protein" />
+
+    <TextView
+        android:id="@+id/protein_grams_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/protein_grams_label_textView"
+        android:layout_alignParentEnd="true"
+        android:text="0.0" />
+
+    <TextView
+        android:id="@+id/fat_grams_label_textView"
+        style="@style/labels"
+        android:layout_below="@+id/protein_grams_label_textView"
+        android:text="Fat" />
+
+    <TextView
+        android:id="@+id/fat_grams_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fat_grams_label_textView"
+        android:layout_alignParentEnd="true"
+        android:text="0.0" />
+
+    <TextView
+        android:id="@+id/carbo_grams_label_textView"
+        style="@style/labels"
+        android:layout_below="@+id/fat_grams_label_textView"
+        android:text="Carbo" />
+
+    <TextView
+        android:id="@+id/carbo_grams_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/carbo_grams_label_textView"
+        android:layout_alignParentEnd="true"
+        android:text="0.0" />
+
+</RelativeLayout>
