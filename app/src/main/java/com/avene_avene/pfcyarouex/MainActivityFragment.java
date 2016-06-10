@@ -12,7 +12,6 @@ import com.avene_avene.pfcyarouex.model.PFCProfile;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
 /**
@@ -26,8 +25,8 @@ public class MainActivityFragment extends Fragment {
     EditText fatMassRateEditText;
     @BindView(R.id.cals_from_fat_rate_editText)
     EditText calsFromFatRateEditText;
-    @BindView(R.id.cals_from_protein_editText)
-    EditText calsFromProteinEditText;
+    @BindView(R.id.protein_factor_editText)
+    EditText proteinFactorEditText;
     @BindView(R.id.total_cals_label_textView)
     TextView totalCalsLabelTextView;
     @BindView(R.id.total_cals_textView)
@@ -59,7 +58,7 @@ public class MainActivityFragment extends Fragment {
     }
 
     @OnTextChanged({R.id.weight_editText, R.id.fat_mass_rate_editText,
-            R.id.cals_from_fat_rate_editText, R.id.cals_from_protein_editText})
+            R.id.cals_from_fat_rate_editText, R.id.protein_factor_editText})
     public void onTextChanged(CharSequence text) {
         calculatePFC();
     }
@@ -74,8 +73,8 @@ public class MainActivityFragment extends Fragment {
         String calsFromFatRateString = calsFromFatRateEditText.getText().toString();
         pfc.setCalsFromFatRate(calsFromFatRateString.isEmpty() ? 0 : Double.parseDouble(calsFromFatRateString));
 
-        String calsFromProteinString = calsFromProteinEditText.getText().toString();
-        pfc.setCalsFromProten(calsFromProteinString.isEmpty() ? 0 : Double.parseDouble(calsFromProteinString));
+        String proteinFactorString = proteinFactorEditText.getText().toString();
+        pfc.setProteinFactor(proteinFactorString.isEmpty() ? 0 : Double.parseDouble(proteinFactorString));
 
         pfc.calculate();
         totalCalsTextView.setText(String.valueOf(pfc.getTotalCals()));
